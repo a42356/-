@@ -1,0 +1,115 @@
+$aside-width: 200px;
+
+%item {
+  position: relative;
+  width: 45px;
+  height: 4px;
+  margin: 6px 0;
+  background-color: #183e63;
+  border-radius: 3px;
+  @media (max-width:500px) {
+    width: 34px;
+    height: 3px;
+    margin: 4px 0;
+  }
+}
+
+.menu {
+  transition: all 500ms ease 0s;
+  position: fixed;
+  left: 0;
+  top: 33px;
+  z-index: 11;
+  background-color: #f8b62e;
+  padding: 10px 20px 10px 50px;
+  border-radius: 0px 10px 10px 0;
+  @media (max-width:500px) {
+    padding: 10px
+
+  }
+  
+  &.active {
+    /*transform: translate3d($aside-width, 0, 0);*/
+    background-color: transparent;
+    left: 85px;
+    @media (max-width:500px) {
+      left: 25%;
+    }
+    
+    & ~ aside {
+      transform: translate3d(0, 0, 0);
+      z-index: 10;
+
+      .menu_text_ul{
+        .color_menu{
+          .li_01{
+            position: relative;
+            &::before{
+              content: "";
+              width: 125%;
+              height: 100%;
+              background-color: #f8b62d;
+              position: absolute;
+              left: -10px;
+              top: 0;
+              z-index: -1;
+            }
+          }
+        }
+      }
+
+
+    }
+  }
+}
+
+.menu_text_ul{
+  padding: 0px 20px;
+  line-height: 38px;
+  font-size: 18px;
+  color: #333;
+  .color_menu{
+    color: #173e63;
+    font-weight: 600;
+    .bor_color_menu{
+      border-bottom: 1px solid rgba(0, 0, 0, .2);
+    }
+  }
+}
+.menu__item--1,
+.menu__item--2,
+.menu__item--3 {
+  @extend %item;
+}
+
+aside {
+  transform: translate3d(-100%, 0, 0);
+  transition: transform 500ms ease 0s;
+  width: $aside-width;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: rgba(231, 243, 251, .85);
+  padding-top: 120px;
+}
+
+#divs{
+    position: relative;
+    left:0;
+    transition: all 1s ease 0s;
+    width: 100%;
+}
+
+// reset button styles
+button {
+  border: none;
+  background: none;
+  outline: 0;
+}
+
+button:focus {
+    outline: 0px dotted;
+    outline: 0px auto -webkit-focus-ring-color;
+}
+
